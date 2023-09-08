@@ -1,0 +1,48 @@
+<p-dialog
+  header="{{ header }}"
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{ width: '50vw', height: '325px' }"
+  [draggable]="true"
+  [resizable]="false"
+  (onHide)="onDialogClose()"
+>
+  <div class="content" style="padding: 15px 0 0 15px">
+    <div>
+      <label style="margin-right: 10px"><b>Worker </b> <span>*</span></label>
+      <p-autoComplete
+        field="name"
+        [(ngModel)]="selected"
+        [suggestions]="filteredEmployees"
+        [minLength]="2"
+        [scrollHeight]="'20'"
+        [emptyMessage]="'No recods found'"
+        [baseZIndex]="999999999"
+        [autoZIndex]="true"
+        (completeMethod)="searchEmployee($event)"
+        (onSelect)="onEmployeeSelect()"
+      >
+      </p-autoComplete>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <div class="footer-content float-right">
+      <div>
+        <button
+          pButton
+          type="button"
+          label="Submit"
+          class="p-button-rounded mr-10 height-40 padding-12 btn-color"
+          (click)="onSubmit()"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="Cancel"
+          class="p-button-rounded p-button-secondary height-40 padding-12"
+          (click)="onDialogClose()"
+        ></button>
+      </div>
+    </div>
+  </ng-template>
+</p-dialog>

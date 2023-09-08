@@ -1,0 +1,8 @@
+{
+  "/search": {
+    "target": "https://krmfis.atlassian.net/rest/api/2",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

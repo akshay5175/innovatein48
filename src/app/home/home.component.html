@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<h3 style="padding: 20px 0 20px 20px;">Let's Get Started</h3>
+
+<div class="row" style="padding-left: 20px;">
+    <div class="col-4 cursor-pointer">
+      <p-card header="Initiate KRM" (click)="initiateKRM()">
+        <p>Initiate KRM process</p>
+      </p-card>
+    </div>
+  <div class="col-4 cursor-pointer">
+    <p-card header="View KRM status" (click)="viewStatus()">
+      <p>Check KRM status</p>
+    </p-card>
+  </div>
+</div>
+
+<!-- Search Dialog -->
+<app-search-dialog [header]="'Search for an Employee'"
+  [selected]="selectedEmployee"
+  [visible]="showModal"
+  (dialogClose)="onDialogClose()"
+  (select)="onEmployeeSelect($event)" (submit)="onSubmit()">
+</app-search-dialog>
+
+<!-- Details Dialog -->
+<!-- <app-details [selectedEmployee]="selectedEmployee" [showDetailsDialog]="showDetailsModal" (onDialogClose)="closeDetailsDialog($event)"></app-details> -->

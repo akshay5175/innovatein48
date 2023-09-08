@@ -1,0 +1,13 @@
+.footer {
+  position: sticky;
+  bottom: 0;
+  background-color: #ffffff;
+  width: 100%;
+  text-align: end;
+  padding-bottom: 10px;
+}
+
+.p-togglebutton {
+  width: 120px;
+  height: 35px;
+}

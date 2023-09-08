@@ -1,0 +1,32 @@
+<p-menubar [model]="menuItems">
+    <ng-template pTemplate="start">
+        <!-- <i class="pi pi-fast-forward" style="font-size: 25px;"></i> -->
+        <img class="cursor-pointer" (click)="goToHome()" src="./../../../assets/krm-logo.png" width="80" height="60"/>
+        <label class="mr-ml-15 cursor-pointer" (click)="goToHome()" style="vertical-align: middle; font-size: 23px;">Knowledge Retention Management</label>
+    </ng-template>
+    <ng-template pTemplate="end">
+      <div class="menu-content">
+          <i class="pi pi-search mr-10"></i>
+          <p-autoComplete class="mr-10" [ngModelOptions]="{standalone: true}"
+            field="name"
+            [(ngModel)]="selectedItem"
+            [suggestions]="filteredSuggestions"
+            (completeMethod)="search($event)"
+            (onSelect)="onItemSelect($event)"
+            placeholder="Search">
+          </p-autoComplete>
+          <i class="pi pi-user mr-25 cursor-pointer" (click)="goToProfile()"></i>
+          <i class="pi pi-fw pi-power-off mr-20 cursor-pointer" (click)="logOut()"></i>
+      </div>
+    </ng-template>
+</p-menubar>
+
+<!-- Search Dialog -->
+<app-search-dialog [header]="'Search for Resigned Employee'" [visible]="showModal" [selected]="selectedEmployee" (dialogClose)="onDialogClose()"
+  (select)="onEmployeeSelect($event)" (submit)="onSubmit()">
+</app-search-dialog>
+
+<!-- Details Dialog -->
+<!-- <div>
+  <app-details *ngIf="showDetailsDialog" [selectedEmployee]="selectedEmployee" (onDialogClose)="onDetailsDialogClose()"></app-details>
+</div> -->

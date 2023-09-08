@@ -1,0 +1,15 @@
+.employee-detail {
+  margin-bottom: 15px;
+}
+
+.krm-content {
+  border-bottom: 1px solid #CCCCCC;
+  padding: 15px !important;
+  height: 325px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+::ng-deep .p-dialog-content {
+  padding: 0 !important;
+}

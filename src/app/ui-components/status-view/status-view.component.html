@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<h3 style="padding:15px;">Status View</h3>
+
+<div class="row">
+  <p-table [value]="employees">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Employee Id</th>
+        <th>Emplyee Name</th>
+        <th>Features</th>
+        <th>Projects</th>
+        <th>Technologies</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+      <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>
+          <p-badge class="ml-10 cursor-pointer" [value]="item.features.length" severity="success" (click)="showDetails(item.features); op.toggle($event);"></p-badge>
+        </td>
+        <td>
+          <p-badge class="ml-10 cursor-pointer" [value]="item.projects.length" severity="success" (click)="showDetails(item.projects); op.toggle($event);"></p-badge>
+        </td>
+        <td>
+          <p-badge class="ml-10 cursor-pointer" [value]="item.technologies.length" severity="success" (click)="showDetails(item.technologies); op.toggle($event);"></p-badge>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="5" class="text-align-center">No records found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-overlayPanel #op>
+  <ng-template pTemplate="content">
+    <p-table [value]="details">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Description</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item>
+        <tr>
+          <td>{{item}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="2" class="text-align-center">No records found.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </ng-template>
+</p-overlayPanel>

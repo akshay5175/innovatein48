@@ -1,0 +1,143 @@
+<app-navbar></app-navbar>
+
+<div class="progress-spinner" *ngIf="loading">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+
+<h3 style="padding:15px;">Employee Summary</h3>
+<div class="parent-container" style="padding: 15px;">
+<div class="row" >
+        <div class="col-xs-12">
+          <label style="margin-right: 10px;"><b>Employee Name:</b></label>
+          <span>{{selectedEmployee.name}}</span>
+        </div>
+</div>
+<div class="row">
+        <div class="col-xs-12">
+          <label style="margin-right: 10px;"><b>Employee Code:</b></label>
+          <span>{{selectedEmployee.id}}</span>
+        </div>
+</div>
+<div class="row">
+  <label class="mb-15" style="margin-right: 10px; margin-top:30px;"><b>Engagement Details:</b></label>
+  <label><b>GITHUB</b></label>
+  <div class="github-table mb-15">
+    <p-table [value]="githubRepos">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Artefact</th>
+          <th>Last Modified</th>
+          <th>Technologies Used</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item>
+        <tr>
+          <!-- <td>
+            <p-checkbox (onChange)="onRowSelect($event, item)" [binary]="true" inputId="binary"></p-checkbox>
+          </td> -->
+          <td><a target="_blank" [href]="item.repoUrl">{{item.name}}</a></td>
+          <td>{{getFormattedDate(item.lastUpdated)}}</td>
+          <td>{{item.technology}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="3" class="text-align-center">No records found.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+      <div class="row">
+        <label><b>JIRA</b></label>
+        <div class="rally-details mb-15">
+          <p-table [value]="jiraEpicsToDisplay">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Epic</th>
+                <th>Description</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+              <tr>
+                <td>
+                  <a [href]="'https://krmfis.atlassian.net/browse/' + item.id" target="_blank">{{item.id}}</a>
+                  <p-badge class="ml-10 cursor-pointer" [value]="item.stories.length + ' User Stories'" severity="success" (click)="showStoryDetails(item.stories); op.toggle($event);"></p-badge>
+                  <p-badge class="ml-10 cursor-pointer" [value]="item.bugs.length + ' Bugs'" severity="danger" (click)="showStoryDetails(item.bugs); op.toggle($event);"></p-badge>
+                </td>
+                <td>{{item.name}}</td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="2" class="text-align-center">No records found.</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <label><b>CLARITY</b></label>
+        <div class="clarity-details mb-15">
+          <p-table [value]="selectedEmployee.clarityDetails ? selectedEmployee.clarityDetails.ids : []">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Feature</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+              <tr>
+                <td>{{item}}</td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="1" class="text-align-center">No records found.</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div> -->
+
+  <div class="footer float-right">
+    <div class="footer-content">
+      <button pButton type="button" label="Initiate Knowledge Retention Process"
+        class="p-button-rounded mr-10 height-40 padding-12 btn-color" (click)="initiateKRM()">
+      </button>
+      <button pButton type="button" label="Cancel"
+        class="p-button-rounded p-button-secondary height-40 padding-12" (click)="onCancel()">
+      </button>
+    </div>
+  </div>
+</div>
+
+<p-overlayPanel #op>
+  <ng-template pTemplate="content">
+    <p-table [value]="storiesToShow">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Key</th>
+          <th>Description</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item>
+        <tr>
+          <td>
+            <a [href]="'https://krmfis.atlassian.net/browse/' + item.key" target="_blank">{{item.key}}</a>
+          </td>
+          <td>{{item.description}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="2" class="text-align-center">No records found.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </ng-template>
+</p-overlayPanel>
+
+<p-dialog header="Init KRM" [(visible)]="showInitKRMDialog" [modal]="true" [style]="{ width: '70vw', height: '480px' }"
+  [draggable]="true" [resizable]="false" (onHide)="closeDialog()">
+  <app-krm-init [selectedEmployee]="selectedEmployee" (onDialogClose)="closeDialog()"></app-krm-init>
+</p-dialog>

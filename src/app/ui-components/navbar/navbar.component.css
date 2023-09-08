@@ -1,0 +1,23 @@
+.navbar {
+  padding-left: 10px;
+}
+
+::ng-deep .p-menubar {
+  background-image: linear-gradient(to right, #08647d, #329674);
+  border-radius: 0;
+  border: 0;
+  color: white;
+}
+
+::ng-deep .pi-home {
+  color: white !important;
+}
+
+::ng-deep .p-menuitem-text {
+  color: white !important;
+}
+
+::ng-deep .p-menuitem-link:hover {
+  background-color: #959191 !important;
+  border-radius: 2px;
+}

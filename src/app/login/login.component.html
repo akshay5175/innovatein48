@@ -1,0 +1,11 @@
+<div class="card flex justify-content-center" style="display: flex; flex-direction: initial; border: 0; margin-top: 10%">
+  <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
+    <p-card header="KRM - Log In" [style]="{ width: '360px' }">
+      <label>Username <span>*</span></label><input type="text" class="width-100" autocomplete="nope" pInputText formControlName="username" />
+      <label>Password <span>*</span></label><input type="password" class="width-100" autocomplete="new-password" pInputText formControlName="password"/>
+        <ng-template pTemplate="footer">
+            <p-button label="Login" type="submit" icon="pi pi-check" [disabled]="!loginFormGroup.valid"></p-button>
+        </ng-template>
+    </p-card>
+  </form>
+</div>
