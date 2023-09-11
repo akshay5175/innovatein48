@@ -16,6 +16,10 @@ export class AppHome {
 
   constructor(private router: Router, private toastService: ToastService, private empService: EmployeeService) { }
 
+  ngOnInit() {
+    this.empService.getEmployeeJiraDetails().subscribe(e => console.log(e));
+  }
+
   closeDetailsDialog(closeAll: boolean) {
     this.showDetailsModal = false;
     if (closeAll) {
@@ -46,7 +50,6 @@ export class AppHome {
       this.toastService.showWarning("Warning", "Please select a worker");
 
     } else {
-      //this.showDetailsModal = true;
       this.router.navigate(["summary"]);
     }
   }

@@ -5,11 +5,13 @@
   <p-table [value]="employees">
     <ng-template pTemplate="header">
       <tr>
-        <th>Employee Id</th>
-        <th>Emplyee Name</th>
+        <th>From Employee Id</th>
+        <th>From Employee Name</th>
         <th>Features</th>
         <th>Projects</th>
         <th>Technologies</th>
+        <th>To Employee Id</th>
+        <th>To Employee Name</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-item>
@@ -25,11 +27,13 @@
         <td>
           <p-badge class="ml-10 cursor-pointer" [value]="item.technologies.length" severity="success" (click)="showDetails(item.technologies); op.toggle($event);"></p-badge>
         </td>
+        <td>{{item.toEmployee}}</td>
+        <td>{{item.toEmployeeId}}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="emptymessage">
       <tr>
-        <td colspan="5" class="text-align-center">No records found.</td>
+        <td colspan="7" class="text-align-center">No records found.</td>
       </tr>
     </ng-template>
   </p-table>

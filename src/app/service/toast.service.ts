@@ -5,10 +5,6 @@ import { MessageService } from "primeng/api";
 export class ToastService {
   constructor(private messageService: MessageService) { }
 
-  clear(key?: string) {
-    this.messageService.clear(key);
-  }
-
   showError(detail: string) {
     this.messageService.add({ severity: 'error', summary: 'Error', detail: detail, life: 5000 });
   }

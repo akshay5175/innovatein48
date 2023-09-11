@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuItem, MessageService } from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 import { EmployeeDTO } from 'src/app/dto/EmployeeDTO';
-import { AppHome } from 'src/app/home/home.component';
 import { AuthService } from 'src/app/service/auth.service';
 import { EmployeeService } from 'src/app/service/employee.service';
 import { ToastService } from 'src/app/service/toast.service';
@@ -21,7 +20,6 @@ export class AppNavbar {
   selectedItem: { name: string, id: number } = { name: "", id: -1 };
   selectedOption: { name: string, id: number } = { name: "", id: -1 };
   showModal: boolean = false;
-  showDetailsDialog: boolean = false;
   suggestions: { name: string, id: number }[] = [{ name: "Knowledge Retention Management - Search for an Employee", id: 1 }, { name: "My Profile", id: 2 }];
 
   constructor(private authService: AuthService, private empService: EmployeeService, private toastService: ToastService, private router: Router) { }
@@ -61,7 +59,6 @@ export class AppNavbar {
       this.showModal = true;
       this.selectedOption = { ...selectedItem };
       this.selectedItem = { name: "", id: -1 };
-      //this.employeeSvc.createEmployeeCollection();
     }
   }
 
@@ -70,7 +67,6 @@ export class AppNavbar {
       this.toastService.showWarning("Warning", "Please select a worker");
 
     } else {
-      //this.showDetailsModal = true;
       this.router.navigate(["summary"]);
     }
   }

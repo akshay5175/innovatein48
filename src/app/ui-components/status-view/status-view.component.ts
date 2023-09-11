@@ -5,7 +5,7 @@ import { EmployeeService } from "src/app/service/employee.service";
 @Component({
   selector: 'app-status-view',
   templateUrl: './status-view.component.html',
-  styleUrls: ['./status-view.component.css']
+  styleUrls: []
 })
 export class AppStatusView {
   employees: KRMTopicDTO[] = [];

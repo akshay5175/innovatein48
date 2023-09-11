@@ -1,6 +1,7 @@
 export interface EmployeeDTO {
   name: string;
   id: string;
+  lwd?: string;
   managerDetails?: EmployeeDTO;
   githubDetails?: GithubDetailsDTO[];
   rallyDetails?: RallyDetailsDTO[];
@@ -12,7 +13,7 @@ export interface GithubDetailsDTO {
   name: string;
   repoUrl: string;
   lastUpdated: Date;
-  technology: string;
+  language: string[];
 }
 
 export interface RallyDetailsDTO {
