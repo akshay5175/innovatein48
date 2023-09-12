@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { EmployeeDTO } from '../dto/EmployeeDTO';
 import { ToastService } from '../service/toast.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../service/employee.service';
 
 @Component({
@@ -17,7 +17,6 @@ export class AppHome {
   constructor(private router: Router, private toastService: ToastService, private empService: EmployeeService) { }
 
   ngOnInit() {
-    this.empService.getEmployeeJiraDetails().subscribe(e => console.log(e));
   }
 
   closeDetailsDialog(closeAll: boolean) {

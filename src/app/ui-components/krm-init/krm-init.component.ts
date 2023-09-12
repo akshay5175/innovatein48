@@ -78,6 +78,7 @@ export class AppKRMInit implements OnInit {
 		this.toastService.showSuccess("KRM has been initiated and employee has been notified!");
 		this.closeDialog();
 		this.router.navigate(["home"]);
+		//this.employeeSvc.sendEmail();
 	}
 
 	closeDialog() {

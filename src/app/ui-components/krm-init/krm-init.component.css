@@ -13,3 +13,8 @@
 ::ng-deep .p-dialog-content {
   padding: 0 !important;
 }
+
+.employee-toggle {
+  vertical-align: top;
+  margin-right: 15px;
+}

@@ -126,3 +126,8 @@ body {
   height: 100%;
   background-color: rgba(0,0,0,0.53);
 }
+
+.p-overlaypanel-content {
+  max-height: 350px;
+  overflow: auto;
+}

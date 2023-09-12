@@ -26,7 +26,7 @@ import { AppSummaryView } from './ui-components/summary-view/summary-view.compon
 import { AppKRMInit } from './ui-components/krm-init/krm-init.component';
 import { AppStatusView } from './ui-components/status-view/status-view.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { ToggleButtonModule } from 'primeng/togglebutton';
+import {InputSwitchModule} from 'primeng/inputswitch';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,7 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
     BadgeModule,
     OverlayPanelModule,
     ProgressSpinnerModule,
-    ToggleButtonModule
+    InputSwitchModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

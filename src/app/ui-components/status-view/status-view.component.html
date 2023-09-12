@@ -27,8 +27,8 @@
         <td>
           <p-badge class="ml-10 cursor-pointer" [value]="item.technologies.length" severity="success" (click)="showDetails(item.technologies); op.toggle($event);"></p-badge>
         </td>
-        <td>{{item.toEmployee}}</td>
         <td>{{item.toEmployeeId}}</td>
+        <td>{{item.toEmployee}}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="emptymessage">

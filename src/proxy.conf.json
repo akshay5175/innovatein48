@@ -1,7 +1,6 @@
 {
 	"/search": {
 		"target": "https://krmfis.atlassian.net/rest/api/2",
-		"pathRewrite": { "^/search": "https://krmfis.atlassian.net/rest/api/2/search" },
 		"secure": true,
 		"changeOrigin": true,
 		"logLevel": "debug"
